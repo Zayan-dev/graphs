@@ -39,8 +39,6 @@ const StackedBarchart = () => {
         }
       ],
       series: [
-        // These series are in the first grid.
-
         // These series are in the second grid.
         { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },
         { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },

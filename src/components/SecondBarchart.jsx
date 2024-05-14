@@ -8,6 +8,7 @@ const SecondBarchart = () => {
         const myChart = echarts.init(chartDom);
 
         const option = {
+            legend:{},
             title: { text: 'Application Criticality' },
             tooltip: {
                 trigger: 'axis',
@@ -43,7 +44,7 @@ const SecondBarchart = () => {
                     name: 'Criticality',
                     type: 'bar',
                     barWidth: '40%',
-                    data: [2, 1.1, 2.5, 4.2, 1.5]
+                    data: [2, 1.1, 2.5, 4.2, 1.5,9]
                 }
             ]
         };

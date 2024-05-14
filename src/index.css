@@ -1,0 +1,52 @@
+#main-menu {
+  /* border: 1px solid red; */
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  padding: 20px;
+  gap: 1rem;
+  text-align: center;
+}
+#title {
+  font-size: 40px;
+  color: black;
+  font-weight: 900;
+}
+/* #main-menu button {
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+} */
+
+/* Main Menu CSS */
+#mainmenu-btn{
+    width: 40%;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    background-color: antiquewhite;
+    color: black;
+    cursor: pointer;
+    /* color: aqua; */
+}
+/* SetBarChart CSS */
+#ok-btn {
+  border: none;
+  background: transparent;
+  padding: 20px;
+  cursor: pointer;
+}
+#generatebarchart {
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+}
