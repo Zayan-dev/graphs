@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 
 const Piechart = () => {
+  const [data,setData]=useState([{value:12,name:"zayan"}]);
+ 
   useEffect(() => {
     // Initialize chart when component mounts
     const chartDom = document.getElementById('piechart');
     const myChart = echarts.init(chartDom);
-
+  
     const option = {
       title: {
         text: 'Budget Distribution',

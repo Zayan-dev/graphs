@@ -10,7 +10,7 @@ const Mainmenu = () => {
             </div>
             <Link id='mainmenu-btn' to="/setbarchart" >Bar Chart</Link>
             <Link id='mainmenu-btn' to="/setsample6">Budget Tracking</Link>
-            <button>Stacked Bar Chart</button>
+            <Link id='mainmenu-btn' to="/setpiechart">Pie Chart</Link>
         </Link>
     )
 }

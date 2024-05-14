@@ -37,16 +37,17 @@ const SetSample6 = ({ onSubmit }) => {
                 type="text"
                 value={cell}
                 onChange={(e) => handleInputChange(rowIndex, columnIndex, e.target.value)}
+                style={{padding:'5px',margin:'5px', outline:'none'}}
               />
               {rowIndex !== 0 && columnIndex === 0 && (
-                <button onClick={() => handleDeleteRow(rowIndex)}>Delete</button>
+                <button style={{border:'none',padding:'10px',borderRadius:'10px',cursor:'pointer'}} onClick={() => handleDeleteRow(rowIndex)}>Delete</button>
               )}
             </div>
           ))}
         </div>
       ))}
-      <button onClick={handleAddRow}>Add Row</button>
-      <button onClick={handleSubmit}>Generate Chart</button>
+      <button style={{border:'none',padding:'10px',borderRadius:'10px', cursor:'pointer'}} onClick={handleAddRow}>Add Row</button>
+      <button style={{border:'none',padding:'10px',borderRadius:'10px',margin:'10px',cursor:'pointer'}} onClick={handleSubmit}>Generate Chart</button>
     </div>
   );
 };
