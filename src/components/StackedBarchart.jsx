@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
+// import './StackedBarchart.css'; // Import CSS for styling
 
 const StackedBarchart = () => {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     // Initialize chart when component mounts
     const chartDom = document.getElementById('stacked-bar');
@@ -12,15 +15,7 @@ const StackedBarchart = () => {
       legend: {},
       tooltip: {},
       dataset: {
-        source: [
-          ['criticality', 'very high', 'high', 'medium', 'low', 'very low'],
-          ['Scalibility', 41.1, 30.4, 65.1, 53.3, 50.0],
-          ['Availability', 86.5, 92.1, 85.7, 83.1, 60.0],
-          ['Usaibility', 24.1, 67.2, 79.5, 86.4, 70.0],
-          ['Modularity', 24.1, 67.2, 79.5, 86.4, 70.0],
-          ['Continuity', 24.1, 67.2, 79.5, 86.4, 70.0],
-          ['Composibility', 24.1, 67.2, 79.5, 86.4, 70.0]
-        ]
+        source: data
       },
       xAxis: [
         {
@@ -38,14 +33,7 @@ const StackedBarchart = () => {
           nameLocation: 'middle'
         }
       ],
-      series: [
-        // These series are in the second grid.
-        { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },
-        { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },
-        { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },
-        { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 },
-        { type: 'bar', xAxisIndex: 0, yAxisIndex: 0 }
-      ]
+      series: Array.from({ length: data.length - 2 }, (_, i) => ({ type: 'bar', xAxisIndex: 0, yAxisIndex: 0 }))
     };
 
     myChart.setOption(option);
@@ -54,9 +42,52 @@ const StackedBarchart = () => {
     return () => {
       myChart.dispose();
     };
-  }, []); // Empty dependency array ensures this effect runs only once after initial render
+  }, [data]);
 
-  return <div id="stacked-bar" style={{ width: '100%', height: '500px' }}></div>;
+  const handleInputChange = (event, rowIndex, cellIndex) => {
+    const newValue = event.target.value;
+    const updatedData = data.map((row, i) =>
+      i === rowIndex ? row.map((cell, j) => (j === cellIndex ? newValue : cell)) : row
+    );
+    setData(updatedData);
+  };
+
+  return (
+    <div className="container">
+      <button className="btn" onClick={() =>
+          setData([
+            ['criticality', 'very high', 'high', 'medium', 'low', 'very low'],
+            ['Scalibility', 0, 0, 0, 0, 0],
+            ['Availability', 0, 0, 0, 0, 0],
+            ['Usability', 0, 0, 0, 0, 0],
+            ['Modularity', 0, 0, 0, 0, 0],
+            ['Continuity', 0, 0, 0, 0, 0],
+            ['Composibility', 0, 0, 0, 0, 0]
+          ])
+        }>
+        Load Default Data
+      </button>
+      <table className="table">
+        <tbody>
+          {data.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
+                <td key={j}>
+                  <input
+                    type="text"
+                    value={cell}
+                    onChange={event => handleInputChange(event, i, j)}
+                    className="input"
+                  />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div id="stacked-bar" className="chart"></div>
+    </div>
+  );
 };
 
 export default StackedBarchart;
