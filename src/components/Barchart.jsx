@@ -36,7 +36,7 @@ const Barchart = (props) => {
           type: 'category',
           nameLocation: 'middle',
           nameTextStyle: { padding: 60, fontSize: 20 },
-          data: ['verylow', 'low', 'medium', 'high', 'very high']
+          data: ['Initial point','low', 'very low', 'medium', 'high', 'very high']
         }
       ],
       series: [
