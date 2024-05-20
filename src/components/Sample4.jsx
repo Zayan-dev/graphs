@@ -28,13 +28,6 @@ const Input = styled.input`
   text-align: center;
 `;
 
-const Select = styled.select`
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
 const Label = styled.label`
   display: flex;
   align-items: center;
@@ -42,12 +35,12 @@ const Label = styled.label`
 `;
 
 const Sample4 = () => {
+  const categories = ['optimized', 'managed', 'functional', 'challenged', 'initial', 'none'];
   const [data, setData] = useState([
-    ['criticality', 'optimized', 'managed', 'functional', 'challenged', 'initial', 'none']
+    ['criticality', ...categories]
   ]);
 
   useEffect(() => {
-    // Initialize chart when component mounts or updates
     const chartDom = document.getElementById('sample-4');
     const myChart = echarts.init(chartDom);
 
@@ -79,11 +72,10 @@ const Sample4 = () => {
 
     myChart.setOption(option);
 
-    // Clean up when component unmounts
     return () => {
       myChart.dispose();
     };
-  }, [data]); // Dependency array ensures this effect runs whenever 'data' changes
+  }, [data]);
 
   const handleCategoryChange = (index, category, value) => {
     setData(prevData => {
@@ -122,22 +114,12 @@ const Sample4 = () => {
             value={row[0]}
             onChange={(e) => handleComponentNameChange(rowIndex + 1, e.target.value)}
           />
-          {row.slice(1).map((value, colIndex) => (
+          {categories.map((category, colIndex) => (
             <React.Fragment key={colIndex}>
-              <Select
-                value={value}
-                onChange={(e) => handleCategoryChange(rowIndex + 1, colIndex + 1, e.target.value)}
-              >
-                <option value={0}>optimized</option>
-                <option value={1}>managed</option>
-                <option value={2}>functional</option>
-                <option value={3}>challenged</option>
-                <option value={4}>initial</option>
-                <option value={5}>none</option>
-              </Select>
+              <span>{category}</span>
               <Input
                 type="number"
-                value={value}
+                value={row[colIndex + 1]}
                 onChange={(e) => handleCategoryChange(rowIndex + 1, colIndex + 1, e.target.value)}
               />
             </React.Fragment>
