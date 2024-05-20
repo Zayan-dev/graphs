@@ -88,14 +88,13 @@ const Piechart = () => {
               onChange={(e) => handleValueChange(index, e.target.value)}
             />
           </label>
-          <button onClick={() => handleDeleteComponent(index)}>Delete</button>
+          <button style={{ border: 'none', padding: '10px', borderRadius: '10px', cursor: 'pointer', margin: '10px' }} onClick={() => handleDeleteComponent(index)}>Delete</button>
         </div>
       ))}
-      <button onClick={handleAddComponent}>Add Component</button>
+      <button style={{ border: 'none', padding: '10px', borderRadius: '10px', cursor: 'pointer', margin: '10px' }} onClick={handleAddComponent}>Add Component</button>
       <div id="piechart" style={{ width: '100%', height: '500px' }}></div>
     </div>
   );
 };
 
 export default Piechart;
-  
