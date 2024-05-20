@@ -215,7 +215,7 @@ function TreeMapChart() {
             </option>
           ))}
         </select>
-        <button className='delete-node-btn' onClick={deleteNode}>Delete Node</button>
+        <button className='delete-node-btn node-btn' onClick={deleteNode}>Delete Node</button>
       </div>
       <div id="main" ref={chartRef} style={{ width: '100%', height: '600px' }}></div>
     </div>
