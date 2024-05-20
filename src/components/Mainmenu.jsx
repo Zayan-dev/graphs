@@ -13,6 +13,7 @@ const Mainmenu = () => {
             <Link id='mainmenu-btn' to="/piechart">Pie Chart</Link>
             <Link id='mainmenu-btn' to="/sample4">Series Layout Chart</Link>
             <Link id='mainmenu-btn' to="/stackedbar">StackedBar Chart</Link>
+            <Link id='mainmenu-btn' to="/treemap">Tree Map Chart</Link>
         </Link>
     )
 }

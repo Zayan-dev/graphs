@@ -15,14 +15,6 @@
   color: black;
   font-weight: 900;
 }
-/* #main-menu button {
-  width: 40%;
-  padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-} */
 
 /* Main Menu CSS */
 #mainmenu-btn{
@@ -80,13 +72,30 @@
   width: 100%;
   border: none;
   outline: none;
-  /* padding: 10px; */
-  /* border: none; */
-  /* padding: 15px; */
 }
 
 .chart {
   width: 100%;
   height: 500px;
   margin-top: 30px;
+}
+
+/* TreeMapChart CSS */
+.TreeMapChart input, .TreeMapChart select{
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  border: 1px solid grey;
+  width: 30%;
+}
+
+.node-btn{
+  padding: 10px;
+  margin: 20px;
+  width: 10%;
+  border-radius: 8px;
+  border: 1px solid rgb(208, 203, 203);
+  background-color: rgb(250, 248, 248);
+  color: black;
+  cursor: pointer;
 }

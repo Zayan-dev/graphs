@@ -4,6 +4,7 @@ import Piechart from "./components/Piechart";
 import SetSample6 from "./components/SetSample6";
 import StackedBarchart from "./components/StackedBarchart";
 import Sample4 from "./components/Sample4";
+import TreeMapChart from "./components/TreeMapChart";
 
 import {
   BrowserRouter,
@@ -22,10 +23,7 @@ function App() {
         <Route exact path="/piechart" element={<Piechart key="/piechart" category="piechart"></Piechart>}></Route>
         <Route exact path="/sample4" element={<Sample4 key="/sample4" category="sample4"></Sample4>}></Route>
         <Route exact path="/stackedbar" element={<StackedBarchart key="/stackedbar" category="stackedbar"></StackedBarchart>}></Route>
-
-
-        {/* <Route exact path="/generatebarchart" element={<Barchart key="/generatebarchart" category="generatebarchart"></Barchart>}></Route> */}
-
+        <Route exact path="/treemap" element={<TreeMapChart key="/treemap" category="treemap"></TreeMapChart>}></Route>
       </Routes>
     </BrowserRouter>
   )
