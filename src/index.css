@@ -26,7 +26,12 @@
     background-color: antiquewhite;
     color: black;
     cursor: pointer;
+    transition: all .5s;
     /* color: aqua; */
+}
+#mainmenu-btn:hover{
+  background-color: rgb(233, 161, 66);
+  color: whitesmoke;
 }
 /* SetBarChart CSS */
 #ok-btn {
@@ -99,3 +104,4 @@
   color: black;
   cursor: pointer;
 }
+

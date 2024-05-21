@@ -5,6 +5,7 @@ import SetSample6 from "./components/SetSample6";
 import StackedBarchart from "./components/StackedBarchart";
 import Sample4 from "./components/Sample4";
 import TreeMapChart from "./components/TreeMapChart";
+import TwoYAxis from "./components/TwoYAxis";
 
 import {
   BrowserRouter,
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/sample4" element={<Sample4 key="/sample4" category="sample4"></Sample4>}></Route>
         <Route exact path="/stackedbar" element={<StackedBarchart key="/stackedbar" category="stackedbar"></StackedBarchart>}></Route>
         <Route exact path="/treemap" element={<TreeMapChart key="/treemap" category="treemap"></TreeMapChart>}></Route>
+        <Route exact path="/twoyaxis" element={<TwoYAxis key="/twoyaxis" category="twoyaxis"></TwoYAxis>}></Route>
       </Routes>
     </BrowserRouter>
   )
