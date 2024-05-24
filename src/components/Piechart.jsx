@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
-import { ChromePicker } from 'react-color'; // Importing ChromePicker from react-color
+import { ChromePicker } from 'react-color';
 
 const Piechart = () => {
   const [data, setData] = useState([]);
-  const [colorPalette, setColorPalette] = useState('random');
+  const [colorPalette, setColorPalette] = useState('cool');
   const [colorPickerVisible, setColorPickerVisible] = useState(false);
   const [currentColor, setCurrentColor] = useState('#fff');
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -88,7 +88,7 @@ const Piechart = () => {
   const handleAddComponent = () => {
     setData(prevData => [
       ...prevData,
-      { value: 0, name: `Comp ${prevData.length + 1}`, color: getRandomColor() }
+      { value: 0, name: `Comp ${prevData.length + 1}`, color: getCoolColor(prevData.length, prevData.length + 1) }
     ]);
   };
 
@@ -97,12 +97,8 @@ const Piechart = () => {
   };
 
   const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    const hue = Math.floor(Math.random() * 240); // Cool colors: from green (120) to violet (300)
+    return `hsl(${hue}, 100%, 50%)`;
   };
 
   const getGrayScaleColor = (index, total) => {
@@ -111,7 +107,7 @@ const Piechart = () => {
   };
 
   const getCoolColor = (index, total) => {
-    const hue = Math.floor((index / total) * 240); // Blue (240) to Cyan (180)
+    const hue = 240 - Math.floor((index / total) * 60); // Blue (240) to Violet (300)
     return `hsl(${hue}, 100%, 50%)`;
   };
 
@@ -130,13 +126,13 @@ const Piechart = () => {
             color = getGrayScaleColor(index, total);
             break;
           case 'cool':
-            color = getCoolColor(index, total);
+            color = getRandomColor(); // Now random cool colors
             break;
           case 'hot':
             color = getHotColor(index, total);
             break;
           default:
-            color = getRandomColor();
+            color = getCoolColor(index, total); // Cool colors from blue to violet
         }
         return { ...item, color };
       });
@@ -162,9 +158,9 @@ const Piechart = () => {
         <label>
           Select Color Palette:
           <select onChange={(e) => setColorPalette(e.target.value)}>
-            <option value="random">Random</option>
+            <option value="cool">Random Colors</option>
             <option value="grayscale">GrayScale</option>
-            <option value="cool">Cool Colors</option>
+            <option value="blueToViolet">Cool Colors</option>
             <option value="hot">Hot Colors</option>
           </select>
         </label>

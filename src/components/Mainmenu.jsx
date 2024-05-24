@@ -13,7 +13,7 @@ const Mainmenu = () => {
             <Link id='mainmenu-btn' to="/sample4">Series Layout Chart</Link>
             <Link id='mainmenu-btn' to="/stackedbar">Stacked Bar Chart</Link>
             <Link id='mainmenu-btn' to="/treemap">Hierarchical Tree Map</Link>
-            {/* <Link id='mainmenu-btn' to="/twoyaxis">Dual Y-Axis Comparison</Link> */}
+            <Link id='mainmenu-btn' to="/twoyaxis">Dual Y-Axis Comparison</Link>
         </div>
     );
 }
